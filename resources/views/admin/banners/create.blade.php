@@ -29,7 +29,16 @@
                                     <h5 class="card-title"></h5>
                                     <form class="needs-validation" action="{{ route('admin.banners.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf   
-                                   
+                                    <div class="row g-2">
+                                            <div class="mb-3 col-md-4">
+                                                <label for="email" class="form-label">Title</label>
+                                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                            </div>
+                                            <div class="mb-3 col-md-8">
+                                                <label for="password" class="form-label">Content</label>
+                                                <input type="text" name="detail" class="form-control" placeholder="Content">
+                                            </div>
+                                        </div>
                                         <div class="row g-2">
                                             <div class="mb-3 col-md-6">
                                                 <label for="city" class="form-label">Image (1170 X 658)</label>

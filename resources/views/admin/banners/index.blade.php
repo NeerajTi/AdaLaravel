@@ -40,6 +40,8 @@ Banners
                                                 <tr>
                                                     <th>X</th>
                                                     <th></th>
+                                                    <th>Title</th>
+                                                    <th>Description</th>
                                                     <th>Image</th>
                                                     <th>Added on</th>
                                                     <th>Action</th>
@@ -56,6 +58,8 @@ Banners
                                                 <tr>
                                                     <th scope="row"><?php echo ($k+1) ?></th>
                                                     <td><input type='checkbox' name='uids[]' value="{{$banner->id}}" /></td>
+                                                    <td>{{$banner->title}}</td>
+                                                    <td>{{$banner->detail}}</td>
                                                     <td><img src="{{ asset('images/banners') }}/<?php echo $banner->image ?>"  style='width:150px;height:100px' /></td>
                                                     <td>{{ date('m/d/Y h:ia',strtotime($banner->created_at)) }}</td>
                                                     <td>

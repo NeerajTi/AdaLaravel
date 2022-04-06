@@ -47,7 +47,8 @@ class BannerController extends Controller
      
         $request->image->move(public_path('images/banners'), $imageName);
         $banner = new Banner();
-
+        $banner->title = addslashes($request->title);
+        $banner->detail = addslashes($request->detail);
         $banner->image=$imageName;
         $banner->save();
         return redirect()->route('admin.banners.index')
@@ -88,9 +89,7 @@ class BannerController extends Controller
     public function update(Request $request, Banner $banner)
     {
         //
-        $request->validate([
-            'image' => 'required'
-        ]);
+        
         if($request->image!='' )
         {
         $imageName = time().'.'.$request->image->extension();  
@@ -98,7 +97,8 @@ class BannerController extends Controller
         $request->image->move(public_path('images/banners'), $imageName);
     }
         
-
+         $banner->title = addslashes($request->title);
+         $banner->detail = addslashes($request->detail);
         if($request->image!='')
         $banner->image=$imageName;
        
