@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Banner;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
@@ -15,6 +16,8 @@ class BannerController extends Controller
     public function index()
     {
         //
+        $banners=Banner::latest()->orderBy('id', 'asc')->paginate(100);
+        return view("admin.banners.index",['data'=>$banners]);
     }
 
     /**
@@ -25,6 +28,7 @@ class BannerController extends Controller
     public function create()
     {
         //
+        return view("admin.banners.create");
     }
 
     /**
@@ -36,6 +40,19 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif'
+        ]);
+        $imageName = time().'.'.$request->image->extension();  
+     
+        $request->image->move(public_path('images/banners'), $imageName);
+        $banner = new Banner();
+
+        $banner->image=$imageName;
+        $banner->save();
+        return redirect()->route('admin.banners.index')
+                        ->with('success','Banner created successfully.');
+        
     }
 
     /**
@@ -55,9 +72,10 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Banner $banner)
     {
         //
+        return view('admin.banners.edit',compact('banner'));
     }
 
     /**
@@ -67,9 +85,26 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Banner $banner)
     {
         //
+        $request->validate([
+            'image' => 'required'
+        ]);
+        if($request->image!='' )
+        {
+        $imageName = time().'.'.$request->image->extension();  
+     
+        $request->image->move(public_path('images/banners'), $imageName);
+    }
+        
+
+        if($request->image!='')
+        $banner->image=$imageName;
+       
+        $banner->update();
+        return redirect()->route('admin.banners.index')
+                        ->with('success','Banner updated successfully.');
     }
 
     /**
@@ -81,5 +116,26 @@ class BannerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function multiaction(Request $request)
+    {
+        if ($request->has('Submit_delete')) 
+        {
+           
+            
+            try {
+              
+           
+                Banner::whereIn('id', $request->uids)->delete();
+                return redirect()->route('admin.banners.index')
+                        ->with('success','Products deleted successfully');
+            }
+            catch(\Exception $e) {
+                return redirect()->route('admin.banners.index')
+                ->with('error-Product',$e->getMessage());
+            } 
+        }
+
     }
 }

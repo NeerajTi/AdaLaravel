@@ -59,6 +59,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     
     Route::post('/user-multiaction', 'Admin\UserController@multiaction')->name('users.multiaction');
     Route::post('/product-multiaction', 'Admin\ProductController@multiaction')->name('products.multiaction');
+    Route::post('/banner-multiaction', 'Admin\BannerController@multiaction')->name('banners.multiaction');
     Route::post('/order-multiaction', 'Admin\OrderController@multiaction')->name('orders.multiaction');
     Route::get('/settings', 'Admin\AdminController@settings')->name('users.updatepwd');
     Route::post('/changepwd', 'Admin\AdminController@changepwd')->name('change.password');
