@@ -42,6 +42,9 @@
                 <li>
                     <a href="{{ route('admin.products.index') }}"><i class="fas fa-table"></i> Product Manager</a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.banners.index') }}"><i class="fas fa-table"></i> Banner Manager</a>
+                </li>
               <li>
                     <a href="{{ route('admin.orders.index') }}"><i class="fas fa-shopping-cart"></i> Orders</a>
                 </li>

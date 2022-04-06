@@ -53,6 +53,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resources([
         'users' =>'Admin\UserController',
         'products'=>'Admin\ProductController',
+        'banners'=>'Admin\BannerController',
         'orders'=>'Admin\OrderController'
     ]);
     
