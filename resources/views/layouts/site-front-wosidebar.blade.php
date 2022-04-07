@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -167,7 +166,7 @@ ul
 		}
 </style>	
 	
-    <title>CNFT.IO | Cardano&#x27;s Biggest NFT Marketplace</title>
+    <title>RhinoAnts | Cardano&#x27;s Biggest NFT Marketplace</title>
 <meta name='robots' content='noindex, nofollow' />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="twitter:card" content="summary_large_image" />
@@ -232,7 +231,10 @@ img.emoji {
 <script  src="{{ asset('assets/js/select2.min.js') }}" id='ppress-select2-js'></script>
 
 			<style type="text/css">
-				 
+				 .card-body {
+    
+    padding: .25rem 1.25rem .25rem 1.25rem;
+}
 				.wpnm-button.style-1,
 				.wpnm-button.style-2,
 				.wpnm-button.style-3,
@@ -341,16 +343,27 @@ img.emoji {
 		
 	<!-- Navbar -->
 
-	<nav class="fixed-header navbar navbar-height navbar-pos bg-navbar ">
+<nav class="fixed-header navbar navbar-height navbar-pos bg-navbar ">
 
-<div class="navbar-container position-relative">
+    <div class="navbar-container position-relative">
 
-	<!-- hamburger menu left-->
-	<span class="hamb-menu toggle-open-close"><i class="fas fa-th fa-lg mx-2"></i></span> 
-	
-	<!-- logo -->		
-	<a class="navbar-logo-left" href="{{URL::to('/')}}">
-		CNFT.IO
+        <!-- hamburger menu left-->
+        <span class="hamb-menu toggle-open-close"><i class="fas fa-th fa-lg mx-2"></i></span> 
+		
+		<!-- logo -->		
+        <a class="navbar-logo-left" href="{{URL::to('/')}}">
+			<?php 
+			if(!empty($site["sitess"]->logo))
+			{
+			?>
+			<img class="logo logob logores" style='width:104px;height:25px' src="{{ asset('images') }}/<?php echo $site["sitess"]->logo ?>" alt="Dark Mode Logo">
+			
+			<?php }else{?>
+				RhinoAnts
+
+			<?php } ?>
+		
+		
 		<!--
             			
 			<img class="logo logow logores" src="https://demo.ramsthemes.com/projects/exlibriswp/wp-content/uploads/2019/07/exlibris-logo-normal.svg" alt="Normal Mode Logo">
@@ -365,146 +378,147 @@ img.emoji {
 			<img class="logo logob d-lg-none" src="https://demo.ramsthemes.com/projects/exlibriswp/wp-content/uploads/2019/07/exlibris-logo-dark-res.svg" alt="Dark Mode Logo">
 -->
         </a>
-	<div class='float-left topmenu' style='position:absolute;left:14.5em'>
-	<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">Home</a>
-		</div>
+		<div class='float-left topmenu' style='position:absolute;left:14.5em'>
 		<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">Mint</a>
-		</div>
-		<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">Sell</a>
-		</div>
-		<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">Marketplace</a>
-		</div>
-		<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">Launch</a>
-		</div>
-		<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">Activity</a>
-		</div>
-		<div class="d-none d-md-inline-block mx-1"> 
-		<a title="Login" href="{{URL::to('/')}}">BetaDex</a>
-		</div>
+			<a title="Login" href="{{URL::to('/')}}">Home</a>
+			</div>
+			<div class="d-none d-md-inline-block mx-1"> 
+			<a title="rhinoants" href="https://rhinoants.com/" target=_blank>Crypto News</a>
+			</div>
+			<?php
+				foreach($site["pages"] as $page)
+				{
+				?>
+				<div class="d-none d-md-inline-block mx-1"> 
+			<a title="Login" href="{{ route('pages.show',$page->id) }}">{{$page->title}}</a>
+			</div>
+			
+				<?php } ?>
+			
 </div>
-	<!-- display search bar below -->
-	<div class="customsearch">
-					<style type="text/css">
-					#is-ajax-search-result-683 .is-ajax-search-post:hover,
-			#is-ajax-search-result-683 .is-show-more-results:hover,
-			#is-ajax-search-details-683 .is-ajax-search-tags-details > div:hover,
-			#is-ajax-search-details-683 .is-ajax-search-categories-details > div:hover {
-				background-color: #e5fbfb !important;
-			}
-									#is-ajax-search-result-683 a,
-			#is-ajax-search-details-683 a:not(.button) {
-				color: #000000 !important;
-			}
-			#is-ajax-search-details-683 .is-ajax-woocommerce-actions a.button {
-				background-color: #000000 !important;
-			}
-									#is-ajax-search-result-683 .is-ajax-search-post,
-			#is-ajax-search-details-683 .is-ajax-search-post-details {
-				border-color: #e5fbfb !important;
-			}
-			#is-ajax-search-result-683,
-			#is-ajax-search-details-683 {
-				background-color: #e5fbfb !important;
-			}
-					</style>
-	<form data-min-no-for-search=1 data-result-box-max-height=400 data-form-id=683 class="is-search-form is-form-style is-form-style-3 is-form-id-683 is-ajax-search" action="#" method="get" role="search" ><label for="is-search-input-683"><span class="is-screen-reader-text">Search for:</span><input  type="search" id="is-search-input-683" name="s" value="" class="is-search-input" placeholder="Search Books" autocomplete=off /><span class="is-loader-image" style="display: none;background-image:url(https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/add-search-to-menu/public/images/spinner.gif);" ></span></label><button type="submit" class="is-search-submit"><span class="is-screen-reader-text">Search Button</span><span class="is-search-icon"><svg focusable="false" aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span></button><input type="hidden" name="id" value="683" /><input type="hidden" name="post_type" value="product" /></form>		</div>		
+		<!-- display search bar below -->
+		<div class="customsearch">
+						<style type="text/css">
+						#is-ajax-search-result-683 .is-ajax-search-post:hover,
+	            #is-ajax-search-result-683 .is-show-more-results:hover,
+	            #is-ajax-search-details-683 .is-ajax-search-tags-details > div:hover,
+	            #is-ajax-search-details-683 .is-ajax-search-categories-details > div:hover {
+					background-color: #e5fbfb !important;
+				}
+                        				#is-ajax-search-result-683 a,
+                #is-ajax-search-details-683 a:not(.button) {
+					color: #000000 !important;
+				}
+                #is-ajax-search-details-683 .is-ajax-woocommerce-actions a.button {
+                	background-color: #000000 !important;
+                }
+                        				#is-ajax-search-result-683 .is-ajax-search-post,
+				#is-ajax-search-details-683 .is-ajax-search-post-details {
+				    border-color: #e5fbfb !important;
+				}
+                #is-ajax-search-result-683,
+                #is-ajax-search-details-683 {
+                    background-color: #e5fbfb !important;
+                }
+						</style>
+		<form data-min-no-for-search=1 data-result-box-max-height=400 data-form-id=683 class="is-search-form is-form-style is-form-style-3 is-form-id-683 is-ajax-search" action="{{ route('front.search') }}" method="get" role="search" >
+		@csrf	
+		<label for="is-search-input-683"><span class="is-screen-reader-text">Search for:</span>
+			<input  type="search" id="is-search-input-683" required name="q" value="<?php echo $_GET['q'] ?? '' ?>" class="is-search-input" placeholder="Search Marketplace" autocomplete=off /><span class="is-loader-image" style="display: none;background-image:url(https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/add-search-to-menu/public/images/spinner.gif);" ></span></label><button type="submit" class="is-search-submit"><span class="is-screen-reader-text">Search Button</span><span class="is-search-icon"><svg focusable="false" aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span></button></form>		</div>		
+			
+		<!-- icons on right -->
 		
-	<!-- icons on right -->
-	
-	<div class="navbar-icons">	
-	@guest
-					<!-- register -->
-		<div class="d-none d-md-inline-block mx-1">
-		<a class="btn btn-custom btn-sm" href="{{ route('login') }}">Login</a>
-		</div>
-			
-		
-			
-		<!-- login -->
-		<div class="d-none d-md-inline-block"> 
-		<a title="Login" href="{{ route('user-myaccount') }}"><i class="fas fa-sign-in-alt fa-lg align-middle mx-2"></i></a>
-		</div>
-		@endguest			
-		<div class="navbar-box" id="topnav">
-			
-			<!-- Switch mode -->			
-					   
-				<div class="d-inline-block align-middle mx-1"><div class="wpnm-button style-1">
-						<div class="wpnm-slider round"></div>
-					</div></div>
-						
-			
-			 
-			<!-- Wishlist -->
-			<div class="d-inline-block align-middle mx-1">		
-				<a href="#;/projects/exlibriswp/my-wishlist/"
-class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
-<span class="wishlist_products_counter_text"></span>
-</a>
-			</div>		
-							
-			<!-- cart -->
+		<div class="navbar-icons">	
+		@guest
+						<!-- register -->
+			<div class="d-none d-md-inline-block mx-1">
+			<a class="btn btn-custom btn-sm" href="{{ route('login') }}">Login</a>
+			</div>
 				
-		
-										<div class="d-inline-block align-middle mx-1">	
-										<a class="cart-contents" href="{{ url('/cart') }}" title="Cart ">
-						
-							@if(session('cart'))
+			
+				
+			<!-- login -->
+			<div class="d-none d-md-inline-block"> 
+			<a title="Login" href="{{ route('user-myaccount') }}"><i class="fas fa-sign-in-alt fa-lg align-middle mx-2"></i></a>
+			</div>
+			@endguest			
+			<div class="navbar-box" id="topnav">
+				
+				<!-- Switch mode -->			
+				           
+					<!--<div class="d-inline-block align-middle mx-1"><div class="wpnm-button style-1">
+                            <div class="wpnm-slider round"></div>
+                        </div></div>-->
+							
+				
+				 
+				<!-- Wishlist -->
+				<!--<div class="d-inline-block align-middle mx-1">		
+					<a href="#;/projects/exlibriswp/my-wishlist/"
+   class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
+	<span class="wishlist_products_counter_text"></span>
+	</a>
+				</div>-->		
+								
+				<!-- cart -->
+					
+			
+											<div class="d-inline-block align-middle mx-1">
+												
+												
+												
+						<a class="cart-contents" href="{{ url('/cart') }}" title="Cart ">
+						@if(session('cart'))
 							<span class="cart-contents-count">
                               {{ count(session('cart')) }}
 							  </span>
 							@endif
-											
 												</a>
-					</div>
-								
-				<!-- account menu right -->
-				@guest
-				@else
-				<div class="dropdown navbar-dd order-3 order-md-0 mx-1">				
-					
-<a class="dropdown-toggle" href="{{ route('my-account') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<i class="fa fa-user" aria-hidden="true"></i></a>
+						</div>
+									
+					<!-- account menu right -->
+					@guest
+					@else
+					<div class="dropdown navbar-dd order-3 order-md-0 mx-1">				
+						
+	<a class="dropdown-toggle" href="{{ route('my-account') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				
+	<i class="fa fa-user" aria-hidden="true"></i>		
+	</a>
 
-<div class="dropdown-menu dropdown-menu-right">	
-	
-	<div class="dropdown-item">
-	<div class="d-inline-block mr-2 mb-2"><img alt='' src='https://secure.gravatar.com/avatar/042e45bfdfcf834fbe29ec7ec55132e9?s=50&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/042e45bfdfcf834fbe29ec7ec55132e9?s=100&#038;d=retro&#038;r=g 2x' class='avatar avatar-50 photo' height='50' width='50' loading='lazy'/></div><strong> </strong>		
-	</div>
-	
-	<a class="dropdown-item" href="{{ route('my-account') }}"><i class="far fa-user fa-lg mr-2"></i>My Account</a>	
-			
-	<div class="dropdown-divider"></div>
-	
-	<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-												 document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-lg mr-2"></i>Logout</a>	
-	<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-									@csrf
-								</form>
-</div>
-
-
-
-			
-				</div>	
-				@endguest			
-			<!-- hamburger menu right -->
-			<!--<div class="hamb-menu-right-box d-inline-block d-md-none">
-			<span class="toggle-open-close-right"><i class="fas fa-bars fa-lg hamb-menu-right align-middle"></i></span>
-			</div>
-	-->
-			
-		</div>	
-	
+	<div class="dropdown-menu dropdown-menu-right">	
+		
+		<div class="dropdown-item">
+		<div class="d-inline-block mr-2 mb-2"><img alt='' src='https://secure.gravatar.com/avatar/042e45bfdfcf834fbe29ec7ec55132e9?s=50&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/042e45bfdfcf834fbe29ec7ec55132e9?s=100&#038;d=retro&#038;r=g 2x' class='avatar avatar-50 photo' height='50' width='50' loading='lazy'/></div><strong> </strong>		
+		</div>
+		
+		<a class="dropdown-item" href="{{ route('my-account') }}"><i class="far fa-user fa-lg mr-2"></i>My Account</a>	
+				
+		<div class="dropdown-divider"></div>
+		
+		<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-lg mr-2"></i>Logout</a>	
+		<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
 	</div>
 
-</div>
+
+
+				
+					</div>	
+					@endguest			
+				<!-- hamburger menu right -->
+				<!--<div class="hamb-menu-right-box d-inline-block d-md-none">
+				<span class="toggle-open-close-right"><i class="fas fa-bars fa-lg hamb-menu-right align-middle"></i></span>
+				</div>
+		-->
+				
+			</div>	
+		
+		</div>
+
+    </div>
 
 </nav>
 
@@ -552,19 +566,16 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
                             <a href="{{URL::to('/')}}" aria-current="page">Home</a>
                         </li>
                         <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237 menu-hover"><a href="{{URL::to('/user/myaccount')}}">My account</a></li>
-                        <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231 menu-hover"><a href="{{URL::to('/')}}">Mint</a></li>
-                        <!--<li id="menu-item-233" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-parent-item menu-parent-item menu-item-233 menu-hover">
-                            <a href="#" class="parent">Pages</a><span class="dropdown-sidenav-btn"><i class="fas fa-chevron-down fa-lg"></i></span>
-                            <ul class="sub-menu">
-                                <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236 menu-hover"><a href="#;/projects/exlibriswp/sample-page/">Sample Page</a></li>
-                                <li id="menu-item-238" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-238 menu-hover"><a href="#;/projects/exlibriswp/404/">404</a></li>
-                            </ul>
-                        </li>-->
-                        <li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404 menu-hover"><a href="{{URL::to('/')}}">Sell</a></li>
-                        <li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-403 menu-hover"><a href="{{URL::to('/')}}">Marketplace</a></li>
-                        <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230 menu-hover"><a href="{{URL::to('/')}}">Launch</a></li>
-                        <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234 menu-hover"><a href="{{URL::to('/')}}">Activity</a></li>
-                        <li id="menu-item-328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-328 menu-hover"><a href="{{URL::to('/')}}">BetaDex</a></li>
+                        <?php
+				foreach($site["pages"] as $page)
+				{
+				?>
+				
+			<li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231 menu-hover"><a href="{{ route('pages.show',$page->id) }}">{{$page->title}}</a></li>
+     
+				<?php } ?>
+						
+						
                     </ul></div></div> 	
 
 </div>
@@ -597,7 +608,7 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
 			
 	</div>
 	
-	
+		
 </div>		
     <!-- main container -->
 	
@@ -605,19 +616,18 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
 	
 	<div class="container-general">
 	
-	<div class="woocommerce">
+	
+<div class="wrapper">
 
-	@yield('content')	
-
+	<!-- Sidenav -->	
+	
+	<div id="page-content-wrapper">
+   <div class='container'>
+    @yield('content')
+		</div>
+    </div>
+				
 </div>
-
-
-
-
-  
-
-   
-
 
 </div>
 
@@ -630,15 +640,16 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
 	<div class='row'>
         <div class="col-12 col-sm-4">
         <div class="p-3">
-            <div id="text-2" class="widget_text"><h6>CNFT.IO</h6>			
+            <div id="text-2" class="widget_text"><h6>{{ $site["sitess"]->footermenu_title }}</h6>			
 			<div class="textwidget">
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Home</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Mint</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Sell</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Marketplace</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">BetaDex</a></p>
+				<?php
+				foreach($site["pages"] as $page)
+				{
+				?>
+				<p class='mt-1 mb-1'><a href="{{ route('pages.show',$page->id) }}">{{$page->title}}</a></p>
+				<?php } ?>
 				<p class='mt-1 mb-1'><a href="{{URL::to('/user/myaccount')}}">Login</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Support</a></p>
+				
 
 				
 </div>
@@ -647,16 +658,10 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
     
         <div class="col-12 col-sm-4">
         <div class="p-3">
-            <div id="text-3" class="widget_text"><h6>About Us</h6>			
+            <div id="text-3" class="widget_text"><h6>{{ $site["sitess"]->aboutus_title }}</h6>			
 			<div class="textwidget">
 
-			CNFT.IO is a marketplace for Cardano Non-Fungible Tokens, launched in July 2021 from a 
-			<br>team decentralised across the world, we can
-			officially say we are the first marketplace on
-			Cardano. We will be adding loads of new
-			features over the next few months so be sure to
-			check back. If you need any help or support
-			reach out to a member of the team on one of our social media channels.
+			{{ $site["sitess"]->aboutus_text }}
 
 
 </div>
@@ -667,14 +672,51 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
     
         <div class="col-12 col-sm-4">
         <div class="p-3">
-		<div id="text-4" class="widget_text"><h6>Connect</h6>			
-		<div class="textwidget"><a href="#"><i class="mx-1 fab fa-facebook fa-lg"></i><span class="screen-reader-text">Facebook</span></a><a href="#"><i class="mx-1 fab fa-twitter fa-lg"></i><span class="screen-reader-text">Twitter</span></a><a href="#"><i class="mx-1 fab fa-linkedin fa-lg"></i><span class="screen-reader-text">Linkedin</span></a><a href="#"><i class="mx-1 fab fa-instagram fa-lg"></i><span class="screen-reader-text">Instagram</span></a><a href="#"><i class="mx-1 fab fa-telegram fa-lg"></i><span class="screen-reader-text">Telegram</span></a><a href="#"><i class="mx-1 fab fa-youtube fa-lg"></i><span class="screen-reader-text">Youtube</span></a><a href="#"><i class="mx-1 fab fa-vimeo fa-lg"></i><span class="screen-reader-text">Vimeo</span></a>
+		<div id="text-4" class="widget_text"><h6>{{ $site["sitess"]->connect_title }}</h6>			
+		<div class="textwidget">
+			<?php 
+			$social=unserialize($site["sitess"]->socialmedia);
+			if($social['facebook']['status']=='Active' && $social['facebook']['url']!='')
+			{
+			?>
+			<a href="{{ $social['facebook']['url'] }}" target=_blank><i class="mx-1 fab fa-facebook fa-lg"></i><span class="screen-reader-text">Facebook</span></a>
+			<?php } 
+			if($social['twitter']['status']=='Active' && $social['twitter']['url']!='')
+			{
+			?>
+			<a href="{{ $social['facebook']['url'] }}" target=_blank><i class="mx-1 fab fa-twitter fa-lg"></i><span class="screen-reader-text">Twitter</span></a>
+			<?php } 
+			if($social['linkedin']['status']=='Active' && $social['linkedin']['url']!='')
+			{
+			?>
+			<a href="{{ $social['facebook']['url'] }}" target=_blank><i class="mx-1 fab fa-linkedin fa-lg"></i><span class="screen-reader-text">Linkedin</span></a>
+			<?php }
+			if($social['instagram']['status']=='Active' && $social['instagram']['url']!='')
+			{
+			?>
+			<a href="{{ $social['instagram']['url'] }}" target=_blank><i class="mx-1 fab fa-instagram fa-lg"></i><span class="screen-reader-text">Instagram</span></a>
+			<?php } 
+			if($social['telegram']['status']=='Active' && $social['telegram']['url']!='')
+			{
+			?>
+			<a href="{{ $social['telegram']['url'] }}" target=_blank><i class="mx-1 fab fa-telegram fa-lg"></i><span class="screen-reader-text">Telegram</span></a>
+			<?php } 
+			if($social['youtube']['status']=='Active' && $social['youtube']['url']!='')
+			{
+			?>
+			<a href="{{ $social['youtube']['url'] }}" target=_blank><i class="mx-1 fab fa-youtube fa-lg"></i><span class="screen-reader-text">Youtube</span></a>
+			<?php }
+			if($social['vimeo']['status']=='Active' && $social['vimeo']['url']!='')
+			{
+			?>
+			<a href="{{ $social['vimeo']['url'] }}" target=_blank><i class="mx-1 fab fa-vimeo fa-lg"></i><span class="screen-reader-text">Vimeo</span></a>
+			<?php } ?>
 </div>
 		</div>
       <hr>
-		<div id="text-5" class="widget_text mt-2"><h6>Subscribe</h6>			
+		<div id="text-5" class="widget_text mt-2"><h6>{{ $site["sitess"]->subscribe_title }}</h6>			
 		<div class="textwidget">	
-		Sign up to our mailing list and receive up-to-date info on new releases.	
+		{{ $site["sitess"]->subscribe_text }}	
 		<!--<p><i class="far fa-copyright fa-sm"></i> <span>2022 EXLIBRIS</br>
 		All Rights Reserved</p>	-->
 		<form action='' class='customform'>
@@ -701,6 +743,7 @@ class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
     </div>
 	
 </footer>
+
 
 <a href="#" id="back-to-top" class="btn-custom" title="Back to top"><i class="fas fa-chevron-up"></i></a>
 
@@ -751,69 +794,104 @@ div.is-ajax-search-details, div.is-ajax-search-result { border-radius: 10px; }
 .is-ajax-search-details .is-title a, .is-ajax-search-post .is-title a { font-weight: bold; }
 .is-form-id-3321 .is-search-input, .is-form-id-3322 .is-search-input { border-radius: 10px !important; }
 .is-form-id-3325 .is-search-submit:focus, .is-form-id-3325 .is-search-submit:hover, .is-form-id-3325 .is-search-submit, .is-form-id-3325 .is-search-icon { border-radius: 0 10px 10px 0; }			</style>
-			<script type="text/javascript">
-		(function () {
-			var c = document.body.className;
-			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-			document.body.className = c;
-		})();
-	</script>
-	<link rel='stylesheet' id='ivory-ajax-search-styles-css'  href='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css?ver=4.8.1'  media='all' />
-<script type='text/javascript' id='lbwps-js-extra'>
-/* <![CDATA[ */
-var lbwpsOptions = {"label_facebook":"Share on Facebook","label_twitter":"Tweet","label_pinterest":"Pin it","label_download":"Download image","label_copyurl":"Copy image URL","share_facebook":"0","share_twitter":"0","share_pinterest":"0","share_download":"1","share_direct":"0","share_copyurl":"0","share_custom_label":"","share_custom_link":"","wheelmode":"close","close_on_drag":"1","history":"1","show_counter":"1","show_fullscreen":"1","show_zoom":"1","show_caption":"1","loop":"1","pinchtoclose":"1","taptotoggle":"1","spacing":"12","close_on_click":"1","fulldesktop":"0","use_alt":"0","desktop_slider":"1","idletime":"4000","hide_scrollbars":"1"};
-/* ]]> */
-</script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/lightbox-photoswipe/assets/scripts.js?ver=3.2.5' id='lbwps-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.5.9.0' id='jquery-blockui-js'></script>
-<script type='text/javascript' id='wc-add-to-cart-js-extra'>
-/* <![CDATA[ */
-var wc_add_to_cart_params = {"ajax_url":"\/projects\/exlibriswp\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/projects\/exlibriswp\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/demo.ramsthemes.com\/projects\/exlibriswp\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
-/* ]]> */
-</script>
-<script  src="{{ asset('assets/js/add-to-cart.min.js') }}" id='wc-add-to-cart-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.5.9.0' id='js-cookie-js'></script>
-<script type='text/javascript' id='woocommerce-js-extra'>
-/* <![CDATA[ */
-var woocommerce_params = {"ajax_url":"\/projects\/exlibriswp\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/projects\/exlibriswp\/?wc-ajax=%%endpoint%%"};
-/* ]]> */
-</script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=5.9.0' id='woocommerce-js'></script>
-<script type='text/javascript' id='wc-cart-fragments-js-extra'>
-/* <![CDATA[ */
-var wc_cart_fragments_params = {"ajax_url":"\/projects\/exlibriswp\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/projects\/exlibriswp\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_cef373075d6aebdc03de57f1d7f74860","fragment_name":"wc_fragments_cef373075d6aebdc03de57f1d7f74860","request_timeout":"5000"};
-/* ]]> */
-</script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=5.9.0' id='wc-cart-fragments-js'></script>
-<script type='text/javascript' id='ppress-frontend-script-js-extra'>
-/* <![CDATA[ */
-var pp_ajax_form = {"ajaxurl":"https:\/\/demo.ramsthemes.com\/projects\/exlibriswp\/wp-admin\/admin-ajax.php","confirm_delete":"Are you sure?","deleting_text":"Deleting...","deleting_error":"An error occurred. Please try again.","nonce":"1c6f1b052a","disable_ajax_form":"false"};
-/* ]]> */
-</script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/wp-user-avatar/assets/js/frontend.min.js?ver=3.2.4' id='ppress-frontend-script-js'></script>
-<script type='text/javascript' id='tinvwl-js-extra'>
-/* <![CDATA[ */
-var tinvwl_add_to_wishlist = {"text_create":"Create New","text_already_in":"\"{product_name}\" already in Wishlist","simple_flow":"","hide_zero_counter":"","i18n_make_a_selection_text":"Please select some product options before adding this product to your wishlist.","tinvwl_break_submit":"No items or actions are selected.","tinvwl_clipboard":"Copied!","allow_parent_variable":"","block_ajax_wishlists_data":"","update_wishlists_data":"","hash_key":"ti_wishlist_data_cef373075d6aebdc03de57f1d7f74860","nonce":"aea3cfa169","rest_root":"https:\/\/demo.ramsthemes.com\/projects\/exlibriswp\/wp-json\/","plugin_url":"https:\/\/demo.ramsthemes.com\/projects\/exlibriswp\/wp-content\/plugins\/ti-woocommerce-wishlist\/"};
-/* ]]> */
-</script>
-<script  src="{{ asset('assets/js/public.min.js') }}" id='tinvwl-js'></script>
+		
+
+<script  src="{{ asset('assets/js/scripts.js') }}" id='lbwps-js'></script>
+<script  src="{{ asset('assets/js/jquery.blockUI.min.js') }}" id='jquery-blockui-js'></script>
+
+
+
 <script  src="{{ asset('assets/js/flickity.pkgd.min.js') }}" id='flickity-js'></script>
 <script  src="{{ asset('assets/js/flickity-custom.js') }}" id='flickity-custom-js'></script>
 <script  src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" id='bootstrap-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/themes/exlibriswp/assets/js/simplebar.min.js?ver=5.8.3' id='scrollbar-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/themes/exlibriswp/assets/js/custom.js?ver=5.8.3' id='exlibriswp-custom-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/themes/exlibriswp/assets/js/navbar.js?ver=5.8.3' id='navbar-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/themes/exlibriswp/assets/js/wooalign-public.js?ver=5.8.3' id='woo-align-buttons-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/themes/exlibriswp/assets/js/pace/pace.min.js?ver=5.8.3' id='pace-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/themes/exlibriswp/assets/js/bootstrap-drawer.js?ver=5.8.3' id='bootstrap-drawer-js'></script>
-<script type='text/javascript' id='ivory-search-scripts-js-extra'>
-/* <![CDATA[ */
-var IvorySearchVars = {"is_analytics_enabled":"1"};
-/* ]]> */
-</script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/add-search-to-menu/public/js/ivory-search.min.js?ver=4.8.1' id='ivory-search-scripts-js'></script>
-<script  src='https://demo.ramsthemes.com/projects/exlibriswp/wp-includes/js/wp-embed.min.js?ver=5.8.3' id='wp-embed-js'></script>
-@yield('scripts')
+<script  src="{{ asset('assets/js/simplebar.min.js') }}" id='scrollbar-js'></script>
+<script  src="{{ asset('assets/js/custom.js') }}" id='exlibriswp-custom-js'></script>
+<script  src="{{ asset('assets/js/navbar.js') }}" id='navbar-js'></script>
+<script  src="{{ asset('assets/js/wooalign-public.js') }}" id='woo-align-buttons-js'></script>
+<script  src="{{ asset('assets/js/bootstrap-drawer.js') }}" id='bootstrap-drawer-js'></script>
+<script src="https://cdn.tiny.cloud/1/0t0cj5hclargfv8vcrc0sdnx2z1zbfa4086xi679kjgw3oa4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
+<script>
+  function selectAll()
+{	
+
+with(window.document.subsControlForm)
+	{	 
+		totalElements = elements.length;
+		for(i = 0; i < totalElements; i++)
+		{	if (elements[i].type == 'checkbox')
+			{	elements[i].checked = true;
+			}
+		}		
+	}
+}
+function confirmDelete()
+{	with(window.document.subsControlForm)
+	{	
+			if (checkSelected())
+			{	return confirm("Selected records will be deleted.\n\nSure?");
+			
+			}
+			else
+			{	return false;
+			}
+		
+	}
+}
+function confirmStatus()
+{	with(window.document.subsControlForm)
+	{	
+			if (checkSelected())
+			{	return confirm("Selected records will be Updated.\n\nSure?");
+			
+			}
+			else
+			{	return false;
+			}
+		
+	}
+}
+function selectNone()
+{	with(window.document.subsControlForm)
+	{	 
+		totalElements = elements.length;
+		for(i = 0; i < totalElements; i++)
+		{	
+			if (elements[i].type == 'checkbox')
+			{	elements[i].checked = false;
+			}
+		}		
+	}
+} 
+function checkSelected()
+{	with(window.document.subsControlForm)
+	{	totalChecked = 0; 
+		totalElements = elements.length;
+		for(i = 0; i < totalElements; i++)
+		{	
+			if (elements[i].type == 'checkbox')
+			{	if (elements[i].checked) 
+				{	totalChecked++;
+					break;
+				}
+			}
+		}		
+
+		if (totalChecked == 0)
+		{	alert("Select a record");
+			return false;
+		}
+
+		return true;
+	}
+}
+
+    </script>
 </body>
 
 </html>

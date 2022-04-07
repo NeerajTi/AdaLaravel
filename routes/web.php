@@ -34,6 +34,7 @@ Route::resources([
     'users'=>'front\UserController',
     'pages'=>'front\PageController'
 ]);
+Route::post('/product-multiaction-front', 'front\ProductController@multiaction')->name('products.multiaction.front');
 Route::get('/search-marketplace', 'front\ProductController@searchmarketplace')->name('front.search');
 //cart
 Route::get('/cart', 'CartController@cart');
@@ -49,7 +50,7 @@ Route::post('/admin-login', 'Auth\LoginController@loginadmin')->name('adminlogin
 Route::get('/admin', 'Admin\AdminController@dashboard')->name('admin-dashboard')->middleware('is_admin');
 Route::get('/admin/login', 'Admin\AdminController@login')->name('admin-login');
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware('is_admin')->name('admin.')->group(function () {
 
     Route::resources([
         'users' =>'Admin\UserController',

@@ -9,6 +9,9 @@
 					<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders menu-hover">
 				<a href="{{ route('orders.index') }}">Orders</a>
 			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders menu-hover">
+				<a href="{{ route('products.index') }}">Products</a>
+			</li>
 					<!--<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads menu-hover">
 				<a href="#;/projects/exlibriswp/my-account/downloads/">Downloads</a>
 			</li>-->
