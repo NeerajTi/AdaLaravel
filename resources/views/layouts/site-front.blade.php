@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -167,7 +166,7 @@ ul
 		}
 </style>	
 	
-    <title>CNFT.IO | Cardano&#x27;s Biggest NFT Marketplace</title>
+    <title>RhinoAnts | Cardano&#x27;s Biggest NFT Marketplace</title>
 <meta name='robots' content='noindex, nofollow' />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="twitter:card" content="summary_large_image" />
@@ -353,7 +352,18 @@ img.emoji {
 		
 		<!-- logo -->		
         <a class="navbar-logo-left" href="{{URL::to('/')}}">
-		CNFT.IO
+			<?php 
+			if(!empty($site["sitess"]->logo))
+			{
+			?>
+			<img class="logo logob logores" style='width:104px;height:25px' src="{{ asset('images') }}/<?php echo $site["sitess"]->logo ?>" alt="Dark Mode Logo">
+			
+			<?php }else{?>
+				RhinoAnts
+
+			<?php } ?>
+		
+		
 		<!--
             			
 			<img class="logo logow logores" src="https://demo.ramsthemes.com/projects/exlibriswp/wp-content/uploads/2019/07/exlibris-logo-normal.svg" alt="Normal Mode Logo">
@@ -373,23 +383,18 @@ img.emoji {
 			<a title="Login" href="{{URL::to('/')}}">Home</a>
 			</div>
 			<div class="d-none d-md-inline-block mx-1"> 
-			<a title="rhinoants" href="https://rhinoants.com/" target=_blank>Back to Crypto site</a>
+			<a title="rhinoants" href="https://rhinoants.com/" target=_blank>Crypto News</a>
 			</div>
-			<div class="d-none d-md-inline-block mx-1"> 
-			<a title="Login" href="{{URL::to('/')}}">Mint</a>
+			<?php
+				foreach($site["pages"] as $page)
+				{
+				?>
+				<div class="d-none d-md-inline-block mx-1"> 
+			<a title="Login" href="{{ route('pages.show',$page->id) }}">{{$page->title}}</a>
 			</div>
-			<div class="d-none d-md-inline-block mx-1"> 
-			<a title="Login" href="{{URL::to('/')}}">Sell</a>
-			</div>
-			<div class="d-none d-md-inline-block mx-1"> 
-			<a title="Login" href="{{URL::to('/')}}">Marketplace</a>
-			</div>
-			<div class="d-none d-md-inline-block mx-1"> 
-			<a title="Login" href="{{URL::to('/')}}">Launch</a>
-			</div>
-			<div class="d-none d-md-inline-block mx-1"> 
-			<a title="Login" href="{{URL::to('/')}}">BetaDex</a>
-			</div>
+			
+				<?php } ?>
+			
 </div>
 		<!-- display search bar below -->
 		<div class="customsearch">
@@ -416,7 +421,10 @@ img.emoji {
                     background-color: #e5fbfb !important;
                 }
 						</style>
-		<form data-min-no-for-search=1 data-result-box-max-height=400 data-form-id=683 class="is-search-form is-form-style is-form-style-3 is-form-id-683 is-ajax-search" action="#" method="get" role="search" ><label for="is-search-input-683"><span class="is-screen-reader-text">Search for:</span><input  type="search" id="is-search-input-683" name="s" value="" class="is-search-input" placeholder="Search Books" autocomplete=off /><span class="is-loader-image" style="display: none;background-image:url(https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/add-search-to-menu/public/images/spinner.gif);" ></span></label><button type="submit" class="is-search-submit"><span class="is-screen-reader-text">Search Button</span><span class="is-search-icon"><svg focusable="false" aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span></button><input type="hidden" name="id" value="683" /><input type="hidden" name="post_type" value="product" /></form>		</div>		
+		<form data-min-no-for-search=1 data-result-box-max-height=400 data-form-id=683 class="is-search-form is-form-style is-form-style-3 is-form-id-683 is-ajax-search" action="{{ route('front.search') }}" method="get" role="search" >
+		@csrf	
+		<label for="is-search-input-683"><span class="is-screen-reader-text">Search for:</span>
+			<input  type="search" id="is-search-input-683" required name="q" value="<?php echo $_GET['q'] ?? '' ?>" class="is-search-input" placeholder="Search Marketplace" autocomplete=off /><span class="is-loader-image" style="display: none;background-image:url(https://demo.ramsthemes.com/projects/exlibriswp/wp-content/plugins/add-search-to-menu/public/images/spinner.gif);" ></span></label><button type="submit" class="is-search-submit"><span class="is-screen-reader-text">Search Button</span><span class="is-search-icon"><svg focusable="false" aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span></button></form>		</div>		
 			
 		<!-- icons on right -->
 		
@@ -438,19 +446,19 @@ img.emoji {
 				
 				<!-- Switch mode -->			
 				           
-					<div class="d-inline-block align-middle mx-1"><div class="wpnm-button style-1">
+					<!--<div class="d-inline-block align-middle mx-1"><div class="wpnm-button style-1">
                             <div class="wpnm-slider round"></div>
-                        </div></div>
+                        </div></div>-->
 							
 				
 				 
 				<!-- Wishlist -->
-				<div class="d-inline-block align-middle mx-1">		
+				<!--<div class="d-inline-block align-middle mx-1">		
 					<a href="#;/projects/exlibriswp/my-wishlist/"
    class="wishlist_products_counter top_wishlist-heart top_wishlist- no-txt">
 	<span class="wishlist_products_counter_text"></span>
 	</a>
-				</div>		
+				</div>-->		
 								
 				<!-- cart -->
 					
@@ -558,19 +566,16 @@ img.emoji {
                             <a href="{{URL::to('/')}}" aria-current="page">Home</a>
                         </li>
                         <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237 menu-hover"><a href="{{URL::to('/user/myaccount')}}">My account</a></li>
-                        <li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231 menu-hover"><a href="{{URL::to('/')}}">Mint</a></li>
-                        <!--<li id="menu-item-233" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-parent-item menu-parent-item menu-item-233 menu-hover">
-                            <a href="#" class="parent">Pages</a><span class="dropdown-sidenav-btn"><i class="fas fa-chevron-down fa-lg"></i></span>
-                            <ul class="sub-menu">
-                                <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236 menu-hover"><a href="#;/projects/exlibriswp/sample-page/">Sample Page</a></li>
-                                <li id="menu-item-238" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-238 menu-hover"><a href="#;/projects/exlibriswp/404/">404</a></li>
-                            </ul>
-                        </li>-->
-                        <li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404 menu-hover"><a href="{{URL::to('/')}}">Sell</a></li>
-                        <li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-403 menu-hover"><a href="{{URL::to('/')}}">Marketplace</a></li>
-                        <li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-230 menu-hover"><a href="{{URL::to('/')}}">Launch</a></li>
-                        <li id="menu-item-234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-234 menu-hover"><a href="{{URL::to('/')}}">Activity</a></li>
-                        <li id="menu-item-328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-328 menu-hover"><a href="{{URL::to('/')}}">BetaDex</a></li>
+                        <?php
+				foreach($site["pages"] as $page)
+				{
+				?>
+				
+			<li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231 menu-hover"><a href="{{ route('pages.show',$page->id) }}">{{$page->title}}</a></li>
+     
+				<?php } ?>
+						
+						
                     </ul></div></div> 	
 
 </div>
@@ -635,15 +640,16 @@ img.emoji {
 	<div class='row'>
         <div class="col-12 col-sm-4">
         <div class="p-3">
-            <div id="text-2" class="widget_text"><h6>CNFT.IO</h6>			
+            <div id="text-2" class="widget_text"><h6>{{ $site["sitess"]->footermenu_title }}</h6>			
 			<div class="textwidget">
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Home</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Mint</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Sell</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Marketplace</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">BetaDex</a></p>
+				<?php
+				foreach($site["pages"] as $page)
+				{
+				?>
+				<p class='mt-1 mb-1'><a href="{{ route('pages.show',$page->id) }}">{{$page->title}}</a></p>
+				<?php } ?>
 				<p class='mt-1 mb-1'><a href="{{URL::to('/user/myaccount')}}">Login</a></p>
-				<p class='mt-1 mb-1'><a href="{{URL::to('/')}}">Support</a></p>
+				
 
 				
 </div>
@@ -652,16 +658,10 @@ img.emoji {
     
         <div class="col-12 col-sm-4">
         <div class="p-3">
-            <div id="text-3" class="widget_text"><h6>About Us</h6>			
+            <div id="text-3" class="widget_text"><h6>{{ $site["sitess"]->aboutus_title }}</h6>			
 			<div class="textwidget">
 
-			CNFT.IO is a marketplace for Cardano Non-Fungible Tokens, launched in July 2021 from a 
-			<br>team decentralised across the world, we can
-			officially say we are the first marketplace on
-			Cardano. We will be adding loads of new
-			features over the next few months so be sure to
-			check back. If you need any help or support
-			reach out to a member of the team on one of our social media channels.
+			{{ $site["sitess"]->aboutus_text }}
 
 
 </div>
@@ -672,14 +672,51 @@ img.emoji {
     
         <div class="col-12 col-sm-4">
         <div class="p-3">
-		<div id="text-4" class="widget_text"><h6>Connect</h6>			
-		<div class="textwidget"><a href="#"><i class="mx-1 fab fa-facebook fa-lg"></i><span class="screen-reader-text">Facebook</span></a><a href="#"><i class="mx-1 fab fa-twitter fa-lg"></i><span class="screen-reader-text">Twitter</span></a><a href="#"><i class="mx-1 fab fa-linkedin fa-lg"></i><span class="screen-reader-text">Linkedin</span></a><a href="#"><i class="mx-1 fab fa-instagram fa-lg"></i><span class="screen-reader-text">Instagram</span></a><a href="#"><i class="mx-1 fab fa-telegram fa-lg"></i><span class="screen-reader-text">Telegram</span></a><a href="#"><i class="mx-1 fab fa-youtube fa-lg"></i><span class="screen-reader-text">Youtube</span></a><a href="#"><i class="mx-1 fab fa-vimeo fa-lg"></i><span class="screen-reader-text">Vimeo</span></a>
+		<div id="text-4" class="widget_text"><h6>{{ $site["sitess"]->connect_title }}</h6>			
+		<div class="textwidget">
+			<?php 
+			$social=unserialize($site["sitess"]->socialmedia);
+			if($social['facebook']['status']=='Active' && $social['facebook']['url']!='')
+			{
+			?>
+			<a href="{{ $social['facebook']['url'] }}" target=_blank><i class="mx-1 fab fa-facebook fa-lg"></i><span class="screen-reader-text">Facebook</span></a>
+			<?php } 
+			if($social['twitter']['status']=='Active' && $social['twitter']['url']!='')
+			{
+			?>
+			<a href="{{ $social['facebook']['url'] }}" target=_blank><i class="mx-1 fab fa-twitter fa-lg"></i><span class="screen-reader-text">Twitter</span></a>
+			<?php } 
+			if($social['linkedin']['status']=='Active' && $social['linkedin']['url']!='')
+			{
+			?>
+			<a href="{{ $social['facebook']['url'] }}" target=_blank><i class="mx-1 fab fa-linkedin fa-lg"></i><span class="screen-reader-text">Linkedin</span></a>
+			<?php }
+			if($social['instagram']['status']=='Active' && $social['instagram']['url']!='')
+			{
+			?>
+			<a href="{{ $social['instagram']['url'] }}" target=_blank><i class="mx-1 fab fa-instagram fa-lg"></i><span class="screen-reader-text">Instagram</span></a>
+			<?php } 
+			if($social['telegram']['status']=='Active' && $social['telegram']['url']!='')
+			{
+			?>
+			<a href="{{ $social['telegram']['url'] }}" target=_blank><i class="mx-1 fab fa-telegram fa-lg"></i><span class="screen-reader-text">Telegram</span></a>
+			<?php } 
+			if($social['youtube']['status']=='Active' && $social['youtube']['url']!='')
+			{
+			?>
+			<a href="{{ $social['youtube']['url'] }}" target=_blank><i class="mx-1 fab fa-youtube fa-lg"></i><span class="screen-reader-text">Youtube</span></a>
+			<?php }
+			if($social['vimeo']['status']=='Active' && $social['vimeo']['url']!='')
+			{
+			?>
+			<a href="{{ $social['vimeo']['url'] }}" target=_blank><i class="mx-1 fab fa-vimeo fa-lg"></i><span class="screen-reader-text">Vimeo</span></a>
+			<?php } ?>
 </div>
 		</div>
       <hr>
-		<div id="text-5" class="widget_text mt-2"><h6>Subscribe</h6>			
+		<div id="text-5" class="widget_text mt-2"><h6>{{ $site["sitess"]->subscribe_title }}</h6>			
 		<div class="textwidget">	
-		Sign up to our mailing list and receive up-to-date info on new releases.	
+		{{ $site["sitess"]->subscribe_text }}	
 		<!--<p><i class="far fa-copyright fa-sm"></i> <span>2022 EXLIBRIS</br>
 		All Rights Reserved</p>	-->
 		<form action='' class='customform'>

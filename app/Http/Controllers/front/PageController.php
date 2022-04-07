@@ -4,8 +4,9 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Page;
 use App\Product;
-class ProductController extends Controller
+class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,18 +45,22 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Page $page)
     {
         //
-        $products=Product::latest()->where('id','!=',$product->id)->paginate(4);
-		return view('front.products.show',compact('product','products'));
+        if($page->status=='Active')
+        {
+        if($page->id==2)
+        {
+            $products=Product::orderBy('id', 'desc')->paginate(100);
+        return view('front.pages.list',compact('page','products'));
+        }
+        else
+        return view('front.pages.show',compact('page'));
+        }else
+        return view('front.pages.notfound');
     }
-    public function searchmarketplace(Request $req)
-    {
 
-        $products=Product::latest()->Where('name', 'like', '%' . trim($req->q) . '%')->paginate(100);
-		return view('front.products.search',compact('products'));
-    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -89,6 +94,4 @@ class ProductController extends Controller
     {
         //
     }
-
-
 }

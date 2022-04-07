@@ -31,9 +31,10 @@ Route::resources([
     'tokens' =>'front\TokenController',
     'products'=>'front\ProductController',
     'orders'=>'OrderController',
-    'users'=>'front\UserController'
+    'users'=>'front\UserController',
+    'pages'=>'front\PageController'
 ]);
-
+Route::get('/search-marketplace', 'front\ProductController@searchmarketplace')->name('front.search');
 //cart
 Route::get('/cart', 'CartController@cart');
 Route::get('/checkout', 'CartController@checkout');
@@ -54,12 +55,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         'users' =>'Admin\UserController',
         'products'=>'Admin\ProductController',
         'banners'=>'Admin\BannerController',
-        'orders'=>'Admin\OrderController'
+        'orders'=>'Admin\OrderController',
+        'settings'=>'Admin\SettingController',
+        'pages'=>'Admin\PageController'
     ]);
-    
+    Route::get('/deletelogo/{id}', 'Admin\SettingController@deleteimage');
     Route::post('/user-multiaction', 'Admin\UserController@multiaction')->name('users.multiaction');
     Route::post('/product-multiaction', 'Admin\ProductController@multiaction')->name('products.multiaction');
     Route::post('/banner-multiaction', 'Admin\BannerController@multiaction')->name('banners.multiaction');
+    Route::post('/page-multiaction', 'Admin\PageController@multiaction')->name('pages.multiaction');
     Route::post('/order-multiaction', 'Admin\OrderController@multiaction')->name('orders.multiaction');
     Route::get('/settings', 'Admin\AdminController@settings')->name('users.updatepwd');
     Route::post('/changepwd', 'Admin\AdminController@changepwd')->name('change.password');

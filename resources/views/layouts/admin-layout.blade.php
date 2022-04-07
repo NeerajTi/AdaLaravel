@@ -45,6 +45,12 @@
                 <li>
                     <a href="{{ route('admin.banners.index') }}"><i class="fas fa-table"></i> Banner Manager</a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.settings.edit',1) }}"><i class="fas fa-table"></i> Site Settings</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.pages.index') }}"><i class="fas fa-table"></i> Page Manager</a>
+                </li>
               <li>
                     <a href="{{ route('admin.orders.index') }}"><i class="fas fa-shopping-cart"></i> Orders</a>
                 </li>
@@ -209,7 +215,19 @@ function confirmDelete()
 		
 	}
 }
-
+function confirmStatus()
+{	with(window.document.subsControlForm)
+	{	
+			if (checkSelected())
+			{	return confirm("Selected records will be Updated.\n\nSure?");
+			
+			}
+			else
+			{	return false;
+			}
+		
+	}
+}
 function selectNone()
 {	with(window.document.subsControlForm)
 	{	 
