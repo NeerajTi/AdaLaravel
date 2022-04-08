@@ -109,7 +109,7 @@ class OrderController extends Controller
                 $order->state=addslashes(trim($request->state));
                 $order->save();
                 $orderdid=$order->id;
-                $orderid='CNFT'.str_pad($orderdid,5,"0",STR_PAD_LEFT);
+                $orderid='RHINOM'.str_pad($orderdid,5,"0",STR_PAD_LEFT);
                 Order::find($orderdid)->update(['orderId'=> $orderid]);
 
                 if(session('cart'))
