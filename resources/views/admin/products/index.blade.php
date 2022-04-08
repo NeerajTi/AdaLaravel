@@ -72,7 +72,11 @@ Products
                                                 <input type='button' value='Select All' class="btn btn-primary"   onclick="selectAll()" />
       <input type='button' value='Select None' class="btn btn-primary"    onclick="selectNone()" />
       <input type='submit' name="Submit_delete" value='Delete Selected' class="btn btn-primary" onclick="return confirmDelete()" />
-
+      <input type='submit' name="Submit_status" value='Change Status' class="btn btn-primary" onclick="return confirmStatus()" />
+      <select style='width:200' name='status'>
+    <option value='Active'>Active</option>
+    <option value='Inactive'>Inactive</option>
+    </select>
                                                 </td>
                                             
                                             </tr>

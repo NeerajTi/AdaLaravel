@@ -161,6 +161,21 @@ class ProductController extends Controller
                 return redirect()->route('products.index')
                 ->with('error-Product',$e->getMessage());
             } 
+        }else if ($request->has('Submit_status')) 
+        {
+           
+            
+            try {
+              
+           
+                Product::whereIn('id', $request->uids)->update(['status' => $request->status]);
+                return redirect()->route('products.index')
+                        ->with('success','Products Status updated successfully');
+            }
+            catch(\Exception $e) {
+                return redirect()->route('products.index')
+                ->with('error-Product',$e->getMessage());
+            } 
         }
 
     }
